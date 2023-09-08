@@ -8,14 +8,14 @@
                     <div class="card-header">
                         <h3>Ambil Antrian untuk Layanan {{ $layanan->nm_layanan }}</h3>
                     </div>
-                    <div class="card-body">
-                        @if (session()->has('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
-                        @auth
+                    @auth
+                        <div class="card-body">
+                            @if (session()->has('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+    
                             <form method="POST" action="/antrian/daftar/{{ $layanan->slug }}">
                                 @csrf
 
@@ -48,15 +48,18 @@
                                     <a href="/" class="btn btn-light m-1">Kembali</a>
                                     <button type="submit" class="btn btn-primary m-1">Simpan</button>
                                 </div>
-
                             </form>
-
-                            @else
-                            <div class="alert alert-danger" role="alert">
-                                Untuk mengambil antrian, anda harus Login/Register akun terlebih dahulu !
+                        </div>
+                    @else
+                        <div class="card-body">
+                            <div class="alert alert-warning my-3" role="alert">
+                                <h4 class="alert-heading">Ups !</h4>
+                                <p>Sepertinya anda belum Login</p>
+                                <hr>
+                                <p class="mb-0">Login atau Register akun terlebih dahulu untuk mengambil antrian !</p>
                             </div>
-                        @endauth
-                    </div>
+                        </div>
+                    @endauth
                 </div>
             </div>
         </div>

@@ -80,6 +80,20 @@
                 </a>
               </li>
             @endforeach
+
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Loket Antrian</span>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/tampilan-loket" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Tampilan Loket</span>
+              </a>
+            </li>
   
           </ul>
         </nav>
@@ -108,6 +122,7 @@
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <a href="/tampilan-loket" class="btn btn-success me-2">Tampilkan Loket</a>
               <a href="/" class="btn btn-primary">Kunjungi Home</a>
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"

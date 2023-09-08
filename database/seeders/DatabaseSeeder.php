@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
 
         Layanan::create([
             'nm_layanan'    => 'Teknisi',
-            'kd_layanan'    => 'TKN-',
+            'kd_layanan'    => 'TKN',
             'slug'          => 'layanan-teknisi',
             'deskripsi'     => 'Ini adalah layanan Teknisi',
             'batas_antrian' => 10,
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Layanan::create([
             'nm_layanan'    => 'Pembayaran',
-            'kd_layanan'    => 'PBY-',
+            'kd_layanan'    => 'PBY',
             'slug'          => 'layanan-pembayaran',
             'deskripsi'     => 'Ini adalah layanan Pembayaran',
             'batas_antrian' => 10,
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Layanan::create([
             'nm_layanan'    => 'Pemasangan Baru',
-            'kd_layanan'    => 'PGB-',
+            'kd_layanan'    => 'PGB',
             'slug'          => 'layanan-pemasangan-baru',
             'deskripsi'     => 'Ini adalah layanan pemasangan baru',
             'batas_antrian' => 10,

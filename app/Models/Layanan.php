@@ -22,7 +22,7 @@ class Layanan extends Model
         ];
     }
     
-    public function antrian()
+    public function antrians()
     {
         return $this->hasMany(Antrian::class);
     }

@@ -11,8 +11,8 @@ class Antrian extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function layanans()
+    public function layanan()
     {
-        return $this->hasMany(Layanan::class);
+        return $this->belongsTo(Layanan::class);
     }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('antrians', function (Blueprint $table) {
             $table->id();
-            $table->string('no_antrian')->unique();
+            $table->string('no_antrian');
             $table->date('tgl_datang');
             $table->string('nm_lengkap');
             $table->text('alamat');

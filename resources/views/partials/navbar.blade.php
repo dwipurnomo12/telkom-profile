@@ -16,7 +16,7 @@
               @if (auth()->user()->role_id == 1)
                 <li><a href="/dashboard">Dashboard</a></li>
               @else
-                <li><a href="/antrian-saya">{{ auth()->user()->name }}</a></li>
+                <li><a href="/antrian/antrian-saya">{{ auth()->user()->name }}</a></li>
                 <form method="POST" action="{{ route('logout') }}" class="mx-3 mt-2 d-block">
                   @csrf
                   <button type="submit" class="btn btn-custom" role="button">Logout</button>

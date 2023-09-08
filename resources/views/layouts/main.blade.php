@@ -43,6 +43,10 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Sweet Aleet -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  @include('sweetalert::alert')
+
   <!-- Vendor JS Files -->
   <script src="/assets_frontend/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="/assets_frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -54,7 +58,6 @@
 
   <!-- Template Main JS File -->
   <script src="/assets_frontend/js/main.js"></script>
-
 </body>
 
 </html>
