@@ -40,7 +40,6 @@ class DatabaseSeeder extends Seeder
             'kd_layanan'    => 'TKN',
             'slug'          => 'layanan-teknisi',
             'deskripsi'     => 'Ini adalah layanan Teknisi',
-            'batas_antrian' => 10,
             'user_id'       => 1
         ]);
         Layanan::create([
@@ -48,7 +47,6 @@ class DatabaseSeeder extends Seeder
             'kd_layanan'    => 'PBY',
             'slug'          => 'layanan-pembayaran',
             'deskripsi'     => 'Ini adalah layanan Pembayaran',
-            'batas_antrian' => 10,
             'user_id'       => 1
         ]);
         Layanan::create([
@@ -56,7 +54,6 @@ class DatabaseSeeder extends Seeder
             'kd_layanan'    => 'PGB',
             'slug'          => 'layanan-pemasangan-baru',
             'deskripsi'     => 'Ini adalah layanan pemasangan baru',
-            'batas_antrian' => 10,
             'user_id'       => 1
         ]);
     }

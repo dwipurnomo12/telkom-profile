@@ -32,16 +32,22 @@ Route::delete('/antrian/antrian-saya/{id}', [FrontendAntrianController::class, '
 Route::get('/antrian/cetak-antrian/{id}', [FrontendAntrianController::class, 'cetakAntrian']);
 
 Auth::routes();
-Route::get('/dashboard', [HomeController::class, 'index']);
-
-Route::get('/layanan/slug', [LayananController::class, 'slug']);
-Route::resource('/layanan', LayananController::class);
-
-Route::get('/antrian-masuk/{antrian:slug}', [AntrianController::class, 'index']);
-Route::delete('/antrian-masuk/{antrian:id}', [AntrianController::class, 'ada']);
-Route::put('/antrian-masuk/{antrian:id}/lewati', [AntrianController::class, 'lewati']);
-
-Route::get('/tampilan-loket', [LoketController::class, 'index']);
-
+Route::middleware('auth')->group(function(){
+    Route::group(['middleware' => 'CheckRole:admin'], function(){
+        Route::get('/dashboard', [HomeController::class, 'index']);
+    
+        Route::get('/layanan/slug', [LayananController::class, 'slug']);
+        Route::resource('/layanan', LayananController::class);
+        
+        Route::get('/antrian-masuk/{antrian:slug}', [AntrianController::class, 'index']);
+        Route::delete('/antrian-masuk/{antrian:id}', [AntrianController::class, 'ada']);
+        Route::put('/antrian-masuk/{antrian:id}/lewati', [AntrianController::class, 'lewati']);
+        Route::delete('/antrian-masuk/{slug}/reset', [AntrianController::class, 'reset']);
+        
+        Route::get('/tampilan-loket/get-antrian', [LoketController::class, 'getAntrian']);
+        Route::get('/tampilan-loket', [LoketController::class, 'index']);
+    });
+    
+});
 
 

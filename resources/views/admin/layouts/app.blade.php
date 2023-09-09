@@ -122,8 +122,8 @@
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-              <a href="/tampilan-loket" class="btn btn-success me-2">Tampilkan Loket</a>
-              <a href="/" class="btn btn-primary">Kunjungi Home</a>
+              <a href="/tampilan-loket" class="btn btn-success me-2">Loket</a>
+              <a href="/" class="btn btn-primary">Home</a>
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
@@ -131,24 +131,12 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">My Profile</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
-                    </a>
+                  
                     <form method="POST" action="{{ route('logout') }}" class="mx-3 mt-2 d-block">
                       @csrf
-                      <button type="submit" class="btn btn-outline-primary">Logout</button>
+                      <button type="submit" class="btn btn-primary m-1">Logout</button>
                     </form>
-                  
-                    
+
                   </div>
                 </div>
               </li>
@@ -163,9 +151,7 @@
 
         @yield('content')
         
-        <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a></p>
-        </div>
+       
       </div>
 
     </div>

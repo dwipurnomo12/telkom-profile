@@ -39,4 +39,14 @@ class AntrianController extends Controller
         alert()->toast('Antrian Dilewati !', 'info');
         return redirect()->back();
      }
+
+    //  Reset Antrian masuk berdasarkan tanggal hari ini
+    public function reset()
+    {
+        $todayDate = Carbon::now('Asia/Jakarta')->toDateString();
+        Antrian::whereDate('tgl_datang', $todayDate)->delete();
+
+        alert()->toast('Antrian hari ini berhasil di Reset !', 'success');
+        return redirect()->back();
+    }
 }

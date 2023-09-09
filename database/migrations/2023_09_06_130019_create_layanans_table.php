@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('slug');
             $table->string('kd_layanan')->unique();
             $table->text('deskripsi');
-            $table->integer('batas_antrian');
             $table->foreignId('user_id');
             $table->timestamps();
         });

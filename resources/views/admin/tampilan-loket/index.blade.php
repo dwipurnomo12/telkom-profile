@@ -11,12 +11,6 @@
         </div>
 
         <div class="card-body">
-            @if (session()->has('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('success') }}
-                </div>
-            @endif
-            
             <div class="row">
                 @foreach ($layanans as $layanan)
                     <div class="col-lg-4">                    
@@ -26,11 +20,7 @@
                             </div>
                             <div class="card-body">
                                 <h2 style="text-align: center">
-                                    @if ($layanan->antrians)
-                                        {{ $layanan->antrians->no_antrian }}
-                                    @else
-                                        Tidak Ada Antrian
-                                    @endif
+                                    <span id="layanan-{{ $layanan->id }}"></span>
                                 </h2>
                             </div>
                         </div>                    
@@ -41,4 +31,27 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function fetchAntrian(layananId){
+        $.ajax({
+            url: '/tampilan-loket/get-antrian',
+            type: 'GET',
+            data: {layanan_id: layananId},
+            success: function (data){
+                if(data.antrian){
+                    $('#layanan-' + layananId).text(data.antrian.no_antrian);
+                } else {
+                    $('#layanan-' + layananId).text('Tidak Ada Antrian')
+                }
+            }, 
+        });
+    }
+
+    setInterval(function () {
+        @foreach ($layanans as $layanan)
+            fetchAntrian({{ $layanan->id }});
+        @endforeach
+    }, 5000);   
+  </script>
 @endsection

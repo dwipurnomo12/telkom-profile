@@ -1,25 +1,29 @@
 @extends('admin.layouts.app')
 
 @section('content')
-  <div class="row">
-    <div class="col d-flex align-items-strech">
-      <div class="card w-100">
-        <div class="card-body">
-          <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
-            <div class="mb-3 mb-sm-0">
-              <h5 class="card-title fw-semibold">Sales Overview</h5>
-            </div>
-            <div>
-              <select class="form-select">
-                <option value="1">March 2023</option>
-                <option value="2">April 2023</option>
-                <option value="3">May 2023</option>
-                <option value="4">June 2023</option>
-              </select>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            Dashboard
+          </div>
+          <div class="card-body">
+            <div class="row">
+              @foreach ($layanans as $layanan)
+                  <div class="col-lg-4">
+                    <div class="card">
+                      <div class="card-header bg-primary text-white">
+                        {{ $layanan->nm_layanan }}
+                      </div>
+                      <div class="card-body">
+                        <h4>Antrian masuk : {{ $layanan->antrians }}</h4>
+                      </div>
+                    </div>
+                  </div>
+              @endforeach
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 @endsection

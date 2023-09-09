@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Antrian;
+use App\Models\Layanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $layanans = Layanan::all();
+        $todayDate = Carbon::now('Asia/Jakarta')->toDateString();
+
+        foreach ($layanans as $layanan) {
+            $layanan->antrians = $layanan->antrians()
+                ->whereDate('tgl_datang', $todayDate)
+                ->orderBy('created_at', 'asc')
+                ->count();
+        }
+
+        return view('admin.dashboard', [
+            'layanans'  => $layanans
+        ]);
     }
 }

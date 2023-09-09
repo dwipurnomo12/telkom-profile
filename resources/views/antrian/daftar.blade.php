@@ -22,7 +22,7 @@
                                 <input type="hidden" value="{{ $layanan->id }}" name="layanan_id">
                                 <div class="mb-3">
                                     <label for="tgl_datang" class="form-label">Tanggal Kedatangan<span style="color: red">*</span></label>
-                                    <input type="date" class="form-control" id="tgl_datang" name="tgl_datang">
+                                    <input type="text" class="form-control datepicker" id="tgl_datang" name="tgl_datang" >
                                     @error('tgl_datang')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -64,4 +64,13 @@
             </div>
         </div>
     </div>
+
+    
+    <script type="text/javascript">
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            daysOfWeekDisabled: [0,6]
+        });
+    </script>
+
 @endsection

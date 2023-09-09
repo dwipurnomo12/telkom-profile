@@ -23,6 +23,13 @@
         <div class="card-header">
             <div class="mb-3 mb-sm-0">
                 <h5 class="card-title fw-semibold">Antrian Masuk Layanan :  {{ $layanan->nm_layanan }}</h5>
+                <div class="ml-auto">
+                    <form id="{{ $layanan->slug }}" action="/antrian-masuk/{{ $layanan->slug }}/reset" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger swal-confirm m-2" data-form="{{ $layanan->slug }}">Reset Antrian</button>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -69,12 +76,38 @@
                         </tr>
                     @endif                     
                 </table>
-            </div>
-            
-                        
+            </div>         
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".swal-confirm");
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", function (e) {
+                e.preventDefault();
+                const formId = this.getAttribute("data-form");
+
+                Swal.fire({
+                    title: "Hapus antrian ini ?",
+                    text: "Tindakan ini tidak dapat dibatalkan!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, Hapus!",
+                    cancelButtonText: "Batal"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById(formId).submit();
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 @endsection
